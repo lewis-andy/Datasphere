@@ -5,41 +5,47 @@ require_once 'config.php';
 // Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate inputs
-    $manufacturer = $_POST['manufacturer'];
     $model = $_POST['model'];
     $year = $_POST['year'];
     $color = $_POST['color'];
     $price = $_POST['price'];
 
-    // Handle photo upload
-    $photo_name = $_FILES['photo']['name'];
-    $photo_tmp_name = $_FILES['photo']['tmp_name'];
-    $photo_type = $_FILES['photo']['type'];
-    $photo_error = $_FILES['photo']['error'];
+    // Check if a file was uploaded
+    if (isset($_FILES['photo']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK) {
+        // Read the uploaded file
+        $photo_data = file_get_contents($_FILES['photo']['tmp_name']);
 
-    if ($photo_error === 0) {
-        $photo_content = file_get_contents($photo_tmp_name);
+        // Check if file data was read successfully
+        if ($photo_data !== false) {
+            // Prepare an SQL statement with placeholders
+            $sql = "INSERT INTO Cars (model, year, color, price, photo) VALUES (?, ?, ?, ?, ?)";
+
+            // Prepare the statement
+            $stmt = $conn->prepare($sql);
+
+            // Bind parameters
+            $stmt->bind_param("sssis", $model, $year, $color, $price, $photo_data);
+
+            // Execute the statement
+            if ($stmt->execute()) {
+                // Redirect to success page or display a success message
+                echo "Car record inserted successfully.";
+            } else {
+                // Handle database insert error
+                echo "Error: " . $stmt->error;
+            }
+        } else {
+            // Handle file read error
+            echo "Error reading uploaded file.";
+        }
     } else {
-        echo "Error uploading photo.";
-        exit;
-    }
-
-    // Insert record into database
-    $sql = "INSERT INTO Cars (manufacturer, model, year, color, price, photo) VALUES (?, ?, ?, ?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssiisd", $manufacturer, $model, $year, $color, $price, $photo_content);
-
-    if ($stmt->execute()) {
-        // Redirect to landing page after successful insertion
-        header("Location: index.php");
-        exit();
-    } else {
-        // Error inserting record, redirect to error page
-        header("Location: error.php");
-        exit();
+        // Handle file upload error
+        echo "No file uploaded or file upload error occurred.";
     }
 }
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">

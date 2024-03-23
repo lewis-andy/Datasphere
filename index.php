@@ -102,6 +102,10 @@
                 } else {
                     echo "<td>No photo available</td>";
                 }
+//                // Debugging output
+//                echo "<pre>";
+//                var_dump($row["photo"]);
+//                echo "</pre>";
                 // Action links
                 echo "<td><a href='read.php?id=" . $row["car_id"] . "'>View</a> | <a href='update.php?id=" . $row["car_id"] . "'>Edit</a> | <a href='delete.php?id=" . $row["car_id"] . "'>Delete</a></td>";
                 echo "</tr>";

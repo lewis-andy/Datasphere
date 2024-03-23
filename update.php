@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 <h1>Edit Car Details</h1>
-<form method="POST">
+<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"] . "?id=$id"); ?>">
     <label for="manufacturer">Manufacturer:</label>
     <input type="text" id="manufacturer" name="manufacturer" value="<?php echo $manufacturer; ?>" required><br><br>
     <label for="model">Model:</label>
@@ -75,6 +75,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type="number" id="price" name="price" step="0.01" value="<?php echo $price; ?>" required><br><br>
     <input type="submit" value="Update">
 </form>
-<a href="view_car.php?id=<?php echo $id; ?>">Cancel</a>
+<a href="read.php?id=<?php echo $id; ?>">Cancel</a>
 </body>
 </html>

@@ -6,46 +6,31 @@ require_once 'config.php';
 if(isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    // Fetch record based on ID
-    $sql = "SELECT * FROM employees WHERE id = $id";
-    $result = $conn->query($sql);
+    // Prepare an SQL statement to delete the record
+    $sql = "DELETE FROM Cars WHERE car_id = ?";
 
-    if ($result->num_rows == 1) {
-        // Record found, display confirmation message
-        $row = $result->fetch_assoc();
-        $name = $row['name'];
-    } else {
-        // No record found with the provided ID, redirect to error page
-        header("Location: error.php");
+    // Prepare the statement
+    $stmt = $conn->prepare($sql);
+
+    // Bind parameters
+    $stmt->bind_param("i", $id);
+
+    // Execute the statement
+    if ($stmt->execute()) {
+        // Redirect to index page after successful deletion
+        header("Location: index.php");
         exit();
+    } else {
+        // Handle database error
+        echo "Error: " . $stmt->error;
     }
 } else {
-    // ID parameter not provided, redirect to error page
+    // Redirect to error page if ID parameter is not provided
     header("Location: error.php");
     exit();
 }
-
-// Check if confirmation is received
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if ($_POST['confirm'] == 'yes') {
-        // Delete record from database
-        $sql = "DELETE FROM employees WHERE id = $id";
-        if ($conn->query($sql) === TRUE) {
-            // Redirect to landing page after successful deletion
-            header("Location: index.php");
-            exit();
-        } else {
-            // Error deleting record, redirect to error page
-            header("Location: error.php");
-            exit();
-        }
-    } else {
-        // User cancelled deletion, redirect to landing page
-        header("Location: index.php");
-        exit();
-    }
-}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Delete Employee Record</title>
 </head>
 <body>
-<h1>Delete Employee Record</h1>
+<h1>Delete Car Record</h1>
 <p>Are you sure you want to delete the record for <?php echo $name; ?>?</p>
 <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"] . "?id=$id"); ?>">
     <input type="radio" name="confirm" value="yes"> Yes
@@ -63,17 +48,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <br><br>
     <input type="submit" value="Confirm">
 </form>
-<script>
-    function confirmDelete() {
-        var confirmation = confirm("Are you sure you want to delete the record?");
-        if (confirmation) {
-            // If user confirms, submit the form
-            document.getElementById("deleteForm").submit();
-        } else {
-            // If user cancels, do nothing
-            return false;
-        }
-    }
-</script>
+<!--<script>-->
+<!--    function confirmDelete() {-->
+<!--        var confirmation = confirm("Are you sure you want to delete the record?");-->
+<!--        if (confirmation) {-->
+<!--            // If user confirms, submit the form-->
+<!--            document.getElementById("deleteForm").submit();-->
+<!--        } else {-->
+<!--            // If user cancels, do nothing-->
+<!--            return false;-->
+<!--        }-->
+<!--    }-->
+<!--</script>-->
 </body>
 </html>
