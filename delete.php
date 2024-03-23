@@ -63,5 +63,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <br><br>
     <input type="submit" value="Confirm">
 </form>
+<script>
+    function confirmDelete() {
+        var confirmation = confirm("Are you sure you want to delete the record?");
+        if (confirmation) {
+            // If user confirms, submit the form
+            document.getElementById("deleteForm").submit();
+        } else {
+            // If user cancels, do nothing
+            return false;
+        }
+    }
+</script>
 </body>
 </html>

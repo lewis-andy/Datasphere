@@ -1,24 +1,42 @@
 <?php
+// Include configuration file
 require_once 'config.php';
 
+// Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Process form data when form is submitted
-    $name = $_POST['name'];
-    $address = $_POST['address'];
-    $salary = $_POST['salary'];
+    // Validate inputs
+    $manufacturer = $_POST['manufacturer'];
+    $model = $_POST['model'];
+    $year = $_POST['year'];
+    $color = $_POST['color'];
+    $price = $_POST['price'];
 
-    // Validate input
-    if (empty($name) || empty($address) || empty($salary)) {
-        echo "All fields are required.";
+    // Handle photo upload
+    $photo_name = $_FILES['photo']['name'];
+    $photo_tmp_name = $_FILES['photo']['tmp_name'];
+    $photo_type = $_FILES['photo']['type'];
+    $photo_error = $_FILES['photo']['error'];
+
+    if ($photo_error === 0) {
+        $photo_content = file_get_contents($photo_tmp_name);
     } else {
-        // Prepare and execute SQL insert statement
-        $sql = "INSERT INTO employees (name, address, salary) VALUES ('$name', '$address', '$salary')";
-        if ($conn->query($sql) === TRUE) {
-            header("location: index.php");
-            exit();
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
+        echo "Error uploading photo.";
+        exit;
+    }
+
+    // Insert record into database
+    $sql = "INSERT INTO Cars (manufacturer, model, year, color, price, photo) VALUES (?, ?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ssiisd", $manufacturer, $model, $year, $color, $price, $photo_content);
+
+    if ($stmt->execute()) {
+        // Redirect to landing page after successful insertion
+        header("Location: index.php");
+        exit();
+    } else {
+        // Error inserting record, redirect to error page
+        header("Location: error.php");
+        exit();
     }
 }
 ?>
@@ -28,19 +46,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Employee</title>
+    <title>Create Car Entry</title>
 </head>
 <body>
-<h1>Create Employee</h1>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-    <label>Name:</label><br>
-    <input type="text" name="name"><br>
-    <label>Address:</label><br>
-    <input type="text" name="address"><br>
-    <label>Salary:</label><br>
-    <input type="number" name="salary"><br>
+<h1>Create Car Entry</h1>
+<form method="post" enctype="multipart/form-data">
+    <label for="manufacturer">Manufacturer:</label><br>
+    <input type="text" id="manufacturer" name="manufacturer" value="Toyota"><br><br>
+
+    <label for="model">Model:</label><br>
+    <input type="text" id="model" name="model" required><br><br>
+
+    <label for="year">Year:</label><br>
+    <input type="number" id="year" name="year" required><br><br>
+
+    <label for="color">Color:</label><br>
+    <input type="text" id="color" name="color" required><br><br>
+
+    <label for="price">Price:</label><br>
+    <input type="number" id="price" name="price" step="0.01" required><br><br>
+
+    <label for="photo">Photo:</label><br>
+    <input type="file" id="photo" name="photo" accept="image/jpeg"><br><br>
+
     <input type="submit" value="Submit">
 </form>
-<a href="index.php">Back to Home</a>
 </body>
 </html>
