@@ -25,7 +25,7 @@
         <ul class="nav-items">
             <li class="nav-item"><a href="index.php" class="nav-link">HOME</a></li>
             <li class="nav-item"><a href="data_home.php" class="nav-link">Database</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">SHOP</a></li>
+            <li class="nav-item"><a href="about.php" class="nav-link">About</a></li>
             <li class="nav-item"><a href="contact.php" class="nav-link">CONTACT</a></li>
         </ul>
     </nav>
