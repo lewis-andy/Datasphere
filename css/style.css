@@ -146,103 +146,273 @@ header {
   font-weight: 400;
   line-height: 1.8rem;
 }
-
-/* -------- OFFER SECTION ------------- */
-.section-2 {
-  margin: 2rem 0;
-}
-.offer {
-  background-color: var(--dark-color);
-  margin: 1rem 0;
-  display: grid;
-}
-.offer img {
-  background-color: var(--dark-color);
-  padding: 2rem 0;
-}
-.offer-1 img {
-  background-color: var(--dark-color);
-  padding: 3rem 0;
-}
-.offer-description {
-  background-color: var(--white-color-alt);
-  padding: 0 1rem;
-}
-.offer-description .offer-title {
-  color: var(--second-color);
-  font-size: 1.8rem;
-  font-weight: 400;
-  padding: 1.5rem 0 0.5rem 0;
-}
-.offer-description .offer-hook {
-  color: var(--second-color-alt);
-  font-size: 1.2rem;
-}
-.offer-description .cart-btn {
-  cursor: pointer;
-  color: var(--second-color-alt);
-  font-size: 1.1rem;
-  display: grid;
-  place-items: center;
-  margin: 2rem 0 1rem 0;
-  width: 10rem;
-  height: 3rem;
-  background-image: linear-gradient(
-          to top,
-          var(--primary-color-alt),
-          var(--primary-color)
-  );
-}
-.offer-description .cart-btn:hover {
-  background-image: linear-gradient(
-          to bottom,
-          var(--primary-color-alt),
-          var(--primary-color)
-  );
+/*card section*/
+/* Styles for the Service Cards */
+.service-box {
+  border: 1px solid steelblue;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Box shadow for the card */
+  transition: transform 0.3s ease-in-out; /* Add a smooth transition effect */
 }
 
-/* -------- PRODUCT SECTION ----------- */
-.section-3 {
-  display: grid;
-  place-items: center;
-  justify-content: space-around;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
+.service-box:hover {
+  transform: scale(1.05); /* Enlarge the card on hover */
 }
-.product {
-  cursor: pointer;
-  background-color: var(--white-color-alt);
+
+.service-ico {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  background-color: #007bff; /* Circle background color */
+  color: #fff; /* Circle icon color */
+}
+
+.ico-circle {
+  display: inline-block;
+  border-radius: 50%;
+  padding: 15px;
+  background-color: #fff; /* Background color for the circle */
+}
+
+.service-content {
+  padding: 20px;
+  background-color: floralwhite;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   position: relative;
+  overflow: hidden;
 }
-.product::before {
-  content: "";
-  background-image: linear-gradient(
-          to bottom,
-          hsla(29, 72%, 83%, 0.438),
-          hsla(9, 94%, 61%, 0.507)
-  );
+.service-content::before {
+  content: '';
   position: absolute;
   top: 0;
-  bottom: 0;
   left: 0;
-  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, white 100%);
+  pointer-events: none;
 }
-.product_add_cart {
-  color: var(--white-color-alt);
-  font-size: 1.2rem;
-  background-color: hsl(9, 94%, 65%);
-  padding: 1rem 0.4rem;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: transform 300ms, color 300ms, box-shadow 300ms;
+
+.s-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: black; /* Service title color */
 }
-.product_add_cart:hover {
-  color: var(--white-color);
-  box-shadow: 0 1rem 0 -0.5rem hsl(17, 79%, 65%, 0.7),
-  0 2rem 0 -1rem hsla(17, 79%, 65%, 0.65);
+
+.s-description {
+  font-size: 16px;
+  color: black; /* Service description color */
 }
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply fadeInUp animation to service content */
+.service-content {
+  animation: fadeInUp 0.8s ease-out;
+  animation-fill-mode: both;
+  padding: 20px;
+}
+/* Hover Effect on Service Content */
+.service-content:hover::before {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0%, #ffffff 100%);
+}
+/* Animation on Hover */
+.service-content:hover {
+  animation: animate__animated animate__bounce; /* You can change 'bounce' to any other animation class */
+}
+/* Media Query for Responsive Design */
+@media screen and (max-width: 768px) {
+  .service-box {
+    margin-right: 0;
+  }
+}
+/*Styles for the Services Section */
+.services-mf {
+  background-color: #f8f9fa; /* Background color for the section */
+  padding: 60px 0; /* Adjust padding as needed */
+}
+
+.title-box {
+  margin-bottom: 40px;
+}
+
+.title-a {
+  font-size: 36px;
+  color: black; /* Title color */
+}
+
+.subtitle-a {
+  font-size: 18px;
+  color: black; /* Subtitle color */
+}
+
+.line-mf {
+  width: 30%;
+  height: 1px;
+  background-color: #007bff; /* Line color */
+  margin: 16px auto;
+}
+
+/*card section service end*/
+/*Card section ends */
+/*** Testimonial ***/
+.testimonial-carousel .owl-item .testimonial-item img {
+  width: 60px;
+  height: 60px;
+}
+
+.testimonial-carousel .owl-item .testimonial-item,
+.testimonial-carousel .owl-item .testimonial-item * {
+  transition: .5s;
+}
+
+.testimonial-carousel .owl-item.center .testimonial-item {
+  background: var(--primary) !important;
+}
+
+.testimonial-carousel .owl-item.center .testimonial-item * {
+  color: #FFFFFF !important;
+}
+
+.testimonial-carousel .owl-item.center .testimonial-item i {
+  color: var(--secondary) !important;
+}
+
+.testimonial-carousel .owl-nav {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.testimonial-carousel .owl-nav .owl-prev,
+.testimonial-carousel .owl-nav .owl-next {
+  margin: 0 12px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark);
+  border: 2px solid var(--primary);
+  border-radius: 50px;
+  font-size: 18px;
+  transition: .5s;
+}
+
+.testimonial-carousel .owl-nav .owl-prev:hover,
+.testimonial-carousel .owl-nav .owl-next:hover {
+  color: #FFFFFF;
+  background: var(--primary);
+}
+/*!* -------- OFFER SECTION ------------- *!*/
+/*.section-2 {*/
+/*  margin: 2rem 0;*/
+/*}*/
+/*.offer {*/
+/*  background-color: var(--dark-color);*/
+/*  margin: 1rem 0;*/
+/*  display: grid;*/
+/*}*/
+/*.offer img {*/
+/*  background-color: var(--dark-color);*/
+/*  padding: 2rem 0;*/
+/*}*/
+/*.offer-1 img {*/
+/*  background-color: var(--dark-color);*/
+/*  padding: 3rem 0;*/
+/*}*/
+/*.offer-description {*/
+/*  background-color: var(--white-color-alt);*/
+/*  padding: 0 1rem;*/
+/*}*/
+/*.offer-description .offer-title {*/
+/*  color: var(--second-color);*/
+/*  font-size: 1.8rem;*/
+/*  font-weight: 400;*/
+/*  padding: 1.5rem 0 0.5rem 0;*/
+/*}*/
+/*.offer-description .offer-hook {*/
+/*  color: var(--second-color-alt);*/
+/*  font-size: 1.2rem;*/
+/*}*/
+/*.offer-description .cart-btn {*/
+/*  cursor: pointer;*/
+/*  color: var(--second-color-alt);*/
+/*  font-size: 1.1rem;*/
+/*  display: grid;*/
+/*  place-items: center;*/
+/*  margin: 2rem 0 1rem 0;*/
+/*  width: 10rem;*/
+/*  height: 3rem;*/
+/*  background-image: linear-gradient(*/
+/*          to top,*/
+/*          var(--primary-color-alt),*/
+/*          var(--primary-color)*/
+/*  );*/
+/*}*/
+/*.offer-description .cart-btn:hover {*/
+/*  background-image: linear-gradient(*/
+/*          to bottom,*/
+/*          var(--primary-color-alt),*/
+/*          var(--primary-color)*/
+/*  );*/
+/*}*/
+
+/*!* -------- PRODUCT SECTION ----------- *!*/
+/*.section-3 {*/
+/*  display: grid;*/
+/*  place-items: center;*/
+/*  justify-content: space-around;*/
+/*  gap: 1rem;*/
+/*  grid-template-columns: repeat(auto-fit, minmax(200px, 400px));*/
+/*}*/
+/*.product {*/
+/*  cursor: pointer;*/
+/*  background-color: var(--white-color-alt);*/
+/*  position: relative;*/
+/*}*/
+/*.product::before {*/
+/*  content: "";*/
+/*  background-image: linear-gradient(*/
+/*          to bottom,*/
+/*          hsla(29, 72%, 83%, 0.438),*/
+/*          hsla(9, 94%, 61%, 0.507)*/
+/*  );*/
+/*  position: absolute;*/
+/*  top: 0;*/
+/*  bottom: 0;*/
+/*  left: 0;*/
+/*  right: 0;*/
+/*}*/
+/*.product_add_cart {*/
+/*  color: var(--white-color-alt);*/
+/*  font-size: 1.2rem;*/
+/*  background-color: hsl(9, 94%, 65%);*/
+/*  padding: 1rem 0.4rem;*/
+/*  position: absolute;*/
+/*  top: 50%;*/
+/*  left: 50%;*/
+/*  transform: translate(-50%, -50%);*/
+/*  transition: transform 300ms, color 300ms, box-shadow 300ms;*/
+/*}*/
+/*.product_add_cart:hover {*/
+/*  color: var(--white-color);*/
+/*  box-shadow: 0 1rem 0 -0.5rem hsl(17, 79%, 65%, 0.7),*/
+/*  0 2rem 0 -1rem hsla(17, 79%, 65%, 0.65);*/
+/*}*/
 
 /* -------- SPONSOR SECTION ----------- */
 .section-4 {

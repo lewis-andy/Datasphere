@@ -7,8 +7,13 @@ if(isset($_GET['id'])) {
     $id = $_GET['id'];
 
     // Fetch record based on ID
-    $sql = "SELECT * FROM Cars WHERE car_id = $id";
-    $result = $conn->query($sql);
+    $sql = "SELECT * FROM Cars WHERE car_id = ?";
+
+    // Prepare statement
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
         // Record found, fetch data
@@ -39,14 +44,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $price = $_POST['price'];
 
     // Update record in database
-    $sql = "UPDATE Cars SET manufacturer='$manufacturer', model='$model', year=$year, color='$color', price=$price WHERE car_id=$id";
+    $sql = "UPDATE Cars SET manufacturer=?, model=?, year=?, color=?, price=? WHERE car_id=?";
 
-    if ($conn->query($sql) === TRUE) {
+    // Prepare statement
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ssdsdi", $manufacturer, $model, $year, $color, $price, $id);
+
+    // Execute the statement
+    if ($stmt->execute()) {
         // Redirect to view car page after successful update
-        header("Location: view_car.php?id=$id");
+        header("Location: index.php?id=$id");
         exit();
     } else {
-        // Error updating record, redirect to error page
+        // Handle database error
         header("Location: error.php");
         exit();
     }
@@ -62,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 <h1>Edit Car Details</h1>
-<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"] . "?id=$id"); ?>">
+<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"] . "?id=$id"); ?>" enctype="multipart/form-data">
     <label for="manufacturer">Manufacturer:</label>
     <input type="text" id="manufacturer" name="manufacturer" value="<?php echo $manufacturer; ?>" required><br><br>
     <label for="model">Model:</label>
@@ -73,7 +83,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type="text" id="color" name="color" value="<?php echo $color; ?>" required><br><br>
     <label for="price">Price:</label>
     <input type="number" id="price" name="price" step="0.01" value="<?php echo $price; ?>" required><br><br>
-    <input type="submit" value="Update">
+    <!-- Input field for uploading photo -->
+    <label for="photo">Photo:</label>
+    <input type="file" id="photo" name="photo"><br><br>
+    <input type="submit" value="Edit">
 </form>
 <a href="read.php?id=<?php echo $id; ?>">Cancel</a>
 </body>

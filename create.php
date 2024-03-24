@@ -46,36 +46,71 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Car Entry</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!--    font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+    <style>
+        /* Add custom CSS styles here */
+        body {
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-<h1>Create Car Entry</h1>
-<form method="post" enctype="multipart/form-data">
-    <label for="manufacturer">Manufacturer:</label><br>
-    <input type="text" id="manufacturer" name="manufacturer" value="Toyota"><br><br>
+<div class="container">
+    <h1 class="mt-5 mb-4">Create Car Entry</h1>
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="manufacturer">Manufacturer:</label>
+            <input type="text" class="form-control" id="manufacturer" name="manufacturer" value="Toyota">
+        </div>
 
-    <label for="model">Model:</label><br>
-    <input type="text" id="model" name="model" required><br><br>
+        <div class="form-group">
+            <label for="model">Model:</label>
+            <input type="text" class="form-control" id="model" name="model" required>
+        </div>
 
-    <label for="year">Year:</label><br>
-    <input type="number" id="year" name="year" required><br><br>
+        <div class="form-group">
+            <label for="year">Year:</label>
+            <input type="number" class="form-control" id="year" name="year" required>
+        </div>
 
-    <label for="color">Color:</label><br>
-    <input type="text" id="color" name="color" required><br><br>
+        <div class="form-group">
+            <label for="color">Color:</label>
+            <input type="text" class="form-control" id="color" name="color" required>
+        </div>
 
-    <label for="price">Price:</label><br>
-    <input type="number" id="price" name="price" step="0.01" required><br><br>
+        <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="number" class="form-control" id="price" name="price" step="0.01" required>
+        </div>
 
-    <label for="photo">Photo:</label><br>
-    <input type="file" id="photo" name="photo" accept="image/jpeg"><br><br>
+        <div class="form-group">
+            <label for="photo">Photo:</label>
+            <input type="file" class="form-control-file" id="photo" name="photo" accept="image/jpeg">
+        </div>
 
-    <input type="submit" value="Submit">
-</form>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<!-- Bootstrap JS and jQuery (optional, if needed) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
 </body>
 </html>
