@@ -5,6 +5,7 @@ require_once 'config.php';
 // Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate inputs
+    $manufacturer = $_POST['manufacturer'];
     $model = $_POST['model'];
     $year = $_POST['year'];
     $color = $_POST['color'];
@@ -56,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!--    font awesome-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
         /* Add custom CSS styles here */
         body {
@@ -68,6 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </style>
 </head>
 <body>
+
 <div class="container">
     <h1 class="mt-5 mb-4">Create Car Entry</h1>
     <form method="post" enctype="multipart/form-data">
@@ -102,6 +104,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="data_home.php" class="btn btn-primary">Home</a>
+
     </form>
 </div>
 
@@ -109,8 +113,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+
 
 </body>
 </html>
+

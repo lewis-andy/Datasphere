@@ -31,22 +31,38 @@ if(isset($_GET['id'])) {
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Car Details</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+        }
+        .details p {
+            margin-bottom: 0.5rem; /* Add some space between paragraphs */
+        }
+    </style>
 </head>
 <body>
 <h1>View Car Details</h1>
-<p><strong>Manufacturer:</strong> <?php echo $manufacturer; ?></p>
-<p><strong>Model:</strong> <?php echo $model; ?></p>
-<p><strong>Year:</strong> <?php echo $year; ?></p>
-<p><strong>Color:</strong> <?php echo $color; ?></p>
-<p><strong>Price:</strong> $<?php echo $price; ?></p>
-<p><strong>Photo:</strong> <?php echo $photo; ?></p>
-<a href="index.php">Back to Car Management</a>
+<div class="details">
+    <p><strong>Manufacturer:</strong> <?php echo $manufacturer; ?></p>
+    <p><strong>Model:</strong> <?php echo $model; ?></p>
+    <p><strong>Year:</strong> <?php echo $year; ?></p>
+    <p><strong>Color:</strong> <?php echo $color; ?></p>
+    <p><strong>Price:</strong> $<?php echo $price; ?></p>
+    <p><strong>Photo:</strong> <?php echo $photo; ?></p>
+</div>
+<a href="data_home.php" class="btn btn-primary">Back to Car Management</a>
+
+<!-- Bootstrap JS (optional, for components like dropdowns, tooltips, etc.) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

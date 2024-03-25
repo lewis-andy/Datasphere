@@ -13,6 +13,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0okbX8xSegZR0XKpxwef3VvNqIhFzMJ6D9sBCxOeH3+C/ZGfSrAr4vXIrjNHr2W" crossorigin="anonymous">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet"href="css/test.css">
+    <link rel="stylesheet" href="css/about.css">
+    <!-- Owl Carousel CSS -->
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
 </head>
 
 
@@ -47,166 +53,168 @@
             <img class="home-computer" src="img/sports-car-races-through-dark-blurred-motion-generative-ai.jpg" alt="a computer in dark with shadow" class="home-img">
         </div>
     </section>
+<br>
+    <br><br>
+    <div class="main">
+        <h1>Project overview.</h1>
+        <br><br><br>
+        <ul class="cards">
+            <li class="cards_item">
+                <div class="card">
+                    <div class="card_image"><img src="img/user-centric.jpg"></div>
+                    <div class="card_content">
+                        <h2 class="card_title">User-centric features</h2>
+                        <p class="card_text">personalized dashboards
+                            Reminders and Notification
+                            intuitive Task creation</p>
+                        <button class="btn card_btn">Read More</button>
+                    </div>
+                </div>
+            </li>
+            <li class="cards_item">
+                <div class="card">
+                    <div class="card_image"><img src="img/4190540.jpg"></div>
+                    <div class="card_content">
+                        <h2 class="card_title">user interface design</h2>
+                        <p class="card_text">user profile
+                            Task Data
+                            Project details
+                            Notification preference</p>
+                        <button class="btn card_btn">Read More</button>
+                    </div>
+                </div>
+            </li>
+            <li class="cards_item">
+                <div class="card">
+                    <div class="card_image"><img src="img/layout.jpg"></div>
+                    <div class="card_content">
+                        <h2 class="card_title">Web page layout</h2>
+                        <p class="card_text">consistent nav-bar at top
+                            calming color scheme
+                            Promoting focus and clarity
+                            colaborative project section</p>
+                        <button class="btn card_btn">Read More</button>
+                    </div>
+                </div>
+            </li>
+            <li class="cards_item">
+                <div class="card">
+                    <div class="card_image"><img src="img/audit-trail.jpg"></div>
+                    <div class="card_content">
+                        <h2 class="card_title">Audit trail</h2>
+                        <p class="card_text">User action
+                            Security-Related Events
+                            Data modification
+                            Error Logging</p>
+                        <button class="btn card_btn">Read More</button>
+                    </div>
+                </div>
+            </li>
+<!--            <li class="cards_item">-->
+<!--                <div class="card">-->
+<!--                    <div class="card_image"><img src="https://picsum.photos/500/300/?image=17"></div>-->
+<!--                    <div class="card_content">-->
+<!--                        <h2 class="card_title">Card Grid Layout</h2>-->
+<!--                        <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>-->
+<!--                        <button class="btn card_btn">Read More</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </li>-->
+<!--            <li class="cards_item">-->
+<!--                <div class="card">-->
+<!--                    <div class="card_image"><img src="https://picsum.photos/500/300/?image=2"></div>-->
+<!--                    <div class="card_content">-->
+<!--                        <h2 class="card_title">Card Grid Layout</h2>-->
+<!--                        <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>-->
+<!--                        <button class="btn card_btn">Read More</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </div>-->
 
-    <section id="service" class="services-mf route">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="title-box text-center">
-                        <h3 class="title-a">
-                            View point
-                        </h3>
-                        <p class="subtitle-a">
-                            An effective task management system is becoming more and more necessary as our lives get more and busier.
-                            Our final project intends to provide a Task Manager, a feature-rich and easy-to-use database-driven online
-                            application, in order to address this. This program, which is designed for both people and teams,
-                            will improve cooperation, expedite task organization, and increase productivity.
+   <br><br><br><hr>
+
+
+            <hr><br>
+            <div class="main">
+                <h1>Features.</h1>
+                <br><br><br><br>
+            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                <div class="testimonial-item position-relative bg-white p-5 mt-4 d-flex align-items-center">
+                    <!-- Image container on the right -->
+                    <div class="image-container me-5">
+                        <!-- Add your image here -->
+                        <img src="img/security.jpg" alt="Testimonial Image">
+                    </div>
+                    <!-- Description on the left -->
+                    <div class="description">
+                        <i class="fa fa-quote-left fa-3x text-primary position-absolute top-0 start-0 mt-n4 ms-5"></i>
+                        <p class="mb-4">
+                            <strong><h2 class="proposal">Security</h2></strong>
+                            Security is our utmost priority. Our robust encryption protocols guarantee the confidentiality of your sensitive data, protecting it from unauthorized access and potential threats. With regular backups and data redundancy, rest assured that your information is safe and sound, even in the face of unexpected events.
                         </p>
-                        <div class="line-mf"></div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="service-box">
-                        <div class="service-content">
-                            <h2 class="s-title">User-centric features</h2>
-                            <p class="s-description text-center">
-                            <ul>
-                                <li>personalized dashboards</li>
-                                <li>Reminders and Notification</li>
-                                <li>intuitive Task creation</li>
-                            </ul>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service-box">
 
-                        <div class="service-content">
-                            <h2 class="s-title">user interface design</h2>
-                            <p class="s-description text-center">
-                            <ul>
-                                <li>user profile</li>
-                                <li>Task Data</li>
-                                <li>Project details</li>
-                                <li>Notification preference</li>
-                            </ul>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service-box">
 
-                        <div class="service-content">
-                            <h2 class="s-title">Web page layout</h2>
-                            <p class="s-description text-center">
-                            <ul>
-                                <li>consistent nav-bar at top</li>
-                                <li>calming color scheme</li>
-                                <li>Promoting focus and clarity</li>
-                                <li>colaborative project section</li>
-                            </ul>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service-box">
-                        <div class="service-content">
 
-                            <h2 class="s-title">Audit trail</h2>
-                            <p class="s-description text-center">
-                                To be used to track:
-                            <ul>
-                                <li>User action</li>
-                                <li>Security-Related Events</li>
-                                <li>Data modification</li>
-                                <li>Error Logging</li>
-                            </ul>
+                <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="testimonial-item position-relative bg-white p-5 mt-4 d-flex align-items-center">
+                        <!-- Image container on the right -->
+                        <div class="image-container me-5">
+                            <!-- Add your image here -->
+                            <img src="img/adaptable.jpg" alt="Testimonial Image">
+                        </div>
+                        <!-- Description on the left -->
+                        <div class="description">
+                            <i class="fa fa-quote-left fa-3x text-primary position-absolute top-0 start-0 mt-n4 ms-5"></i>
+                            <p class="mb-4">
+                                <strong><h2 class="proposal">Adaptability</h2></strong>
+                                But it doesn't stop there. Our database is designed to adapt and scale with your growing needs. As your business expands, our solution seamlessly accommodates increased volumes of data without compromising on performance or speed. From small startups to multinational corporations, our database is the ideal partner for all your data management requirements.
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <!-- project overview start -->
-                <div class="container-fluid bg-light bg-icon py-6 mb-5">
-                    <div class="container">
-                        <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
-                            <h1 class="display-5 mb-3">Project overview.</h1>
-                            <p>Welcome to our database proposal, where organization meets efficiency. With sleek design and seamless
-                                functionality, our database solution is poised to revolutionize the way you store and access your
-                                valuable information. Say goodbye to hours of searching and sorting through endless paperwork – our
-                                database is here to streamline your processes and elevate your productivity.Here are some of the features to
-                                expect.
+                <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="testimonial-item position-relative bg-white p-5 mt-4 d-flex align-items-center">
+                        <!-- Image container on the right -->
+                        <div class="image-container me-5">
+                            <!-- Add your image here -->
+                            <img src="img/friendlly.jpg" alt="Testimonial Image">
+                        </div>
+                        <!-- Description on the left -->
+                        <div class="description">
+                            <i class="fa fa-quote-left fa-3x text-primary position-absolute top-0 start-0 mt-n4 ms-5"></i>
+                            <p class="mb-4">
+                                <strong><h2 class="proposal">User-Friendly</h2></strong>
+                                Imagine a world where every piece of data is readily available at your fingertips. Our database offers a user-friendly interface, providing effortless navigation through your stored information. Whether it's financial records, customer profiles, or inventory details, our system ensures that essential data is organized and easily retrievable, saving you time and eliminating headaches.
                             </p>
                         </div>
-                        <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="testimonial-item position-relative bg-white p-5 mt-4">
-                                <i class="fa fa-quote-left fa-3x text-primary position-absolute top-0 start-0 mt-n4 ms-5"></i>
-                                <p class="mb-4">"
-                                <center> <bold><h2 class="proposal">Security</h2></bold></center>
-                                Security is our utmost priority. Our robust encryption protocols guarantee the confidentiality of your sensitive data,
-                                protecting it from unauthorized access and potential threats. With regular backups and data redundancy, rest assured that your information is safe and sound, even in the face of unexpected events..</p>
-                                <div class="d-flex align-items-center">
+                    </div>
+                </div>
 
-
-                                </div>
-                            </div>
-                            <div class="testimonial-item position-relative bg-white p-5 mt-4">
-                                <i class="fa fa-quote-left fa-3x text-primary position-absolute top-0 start-0 mt-n4 ms-5"></i>
-                                <p class="mb-4">"
-                                <center> <bold><h2 class="proposal">Adaptability</h2></bold></center>
-                                But it doesn't stop there. Our database is designed to adapt and scale with your growing needs.
-                                As your business expands, our solution seamlessly accommodates increased volumes of data without
-                                compromising on performance or speed. From small startups to multinational corporations,
-                                our database is the ideal partner for all your data management requirements.</p>
-                                <div class="d-flex align-items-center">
-
-                                </div>
-                            </div>
-                            <div class="testimonial-item position-relative bg-white p-5 mt-4">
-                                <i class="fa fa-quote-left fa-3x text-primary position-absolute top-0 start-0 mt-n4 ms-5"></i>
-                                <p class="mb-4">"
-                                <center> <bold><h2 class="proposal">User- friendly</h2></bold></center>
-                                Imagine a world where every piece of data is readily available at your fingertips. Our database
-                                offers a user-friendly interface, providing effortless navigation through your stored information.
-                                Whether it's financial records, customer profiles, or inventory details, our system ensures that
-                                essential data is organized and easily retrievable, saving you time and eliminating headaches.
-                                </p>
-                                <div class="d-flex align-items-center">
-
-
-                                </div>
-                            </div>
-                            <div class="testimonial-item position-relative bg-white p-5 mt-4">
-                                <i class="fa fa-quote-left fa-3x text-primary position-absolute top-0 start-0 mt-n4 ms-5"></i>
-                                <p class="mb-4">"
-                                <center> <bold><h2 class="proposal">Technological</h2></bold></center>
-                                Gone are the days of manual data entry. Our database effortlessly integrates with a wide range
-                                of existing systems, enabling smooth data transfer and synchronization. Spend less time on mundane
-                                administrative tasks and more time on what truly matters – building and growing your business.
-                                </p>
-                                <div class="d-flex align-items-center">
-
-                                </div>
-                            </div>
-                            <div class="testimonial-item position-relative bg-white p-5 mt-4">
-                                <i class="fa fa-quote-left fa-3x text-primary position-absolute top-0 start-0 mt-n4 ms-5"></i>
-                                <p class="mb-4">"
-                                <center> <bold><h2 class="proposal">Conclusion</h2></bold></center>
-                                <hr class="bg-white d-inline-block mb-4" style="width: 60px; height: 2px;">
-                                In conclusion, our database proposal sets the stage for a more streamlined and efficient future.
-                                Let us be your digital companion, simplifying your data management processes, ensuring data security,
-                                and providing a foundation for growth. Embrace the power of our database solution and unlock the true
-                                potential of your digital endeavors.</p>
-                                <div class="d-flex align-items-center">
-                                </div>
-                            </div>
+                <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="testimonial-item position-relative bg-white p-5 mt-4 d-flex align-items-center">
+                        <!-- Image container on the right -->
+                        <div class="image-container me-5">
+                            <!-- Add your image here -->
+                            <img src="img/tech.jpg" alt="Testimonial Image">
                         </div>
-                        <!-- Testimonial End -->
+                        <!-- Description on the left -->
+                        <div class="description">
+                            <i class="fa fa-quote-left fa-3x text-primary position-absolute top-0 start-0 mt-n4 ms-5"></i>
+                            <p class="mb-4">
+                                <strong><h2 class="proposal">techonological</h2></strong>
+                                Gone are the days of manual data entry. Our database effortlessly integrates with a wide range of existing systems, enabling smooth data transfer and synchronization. Spend less time on mundane administrative tasks and more time on what truly matters – building and growing your business.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial End -->
 
 
 
@@ -279,7 +287,7 @@
         </div>
     </div>
     <div class="container end-footer">
-        <div class="copyright">copyright © 2021 -  • <b> PARTH SHARMA</b></div>
+        <div class="copyright">copyright © 2024 -  • <b> PARTH SHARMA</b></div>
         <a class="designer" href="#"></a>
     </div>
 </footer>
@@ -314,5 +322,7 @@
     })
 
 </script>
+<script src="js/main.js"></script>
+
 </body>
 </html>
