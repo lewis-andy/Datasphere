@@ -58,5 +58,72 @@ Make sure to replace 'your_database_user', 'your_database_password', and 'your_d
 
 9. You should now be able to interact with the application locally.
 
+## Setting up MySQL Database
+
+- Follow these steps to create a MySQL database for the Car Management System using XAMPP:
+
+1. Install XAMPP: If you haven't already installed XAMPP, download it from the official website (https://www.apachefriends.org/index.html) and follow the installation instructions.
+
+2. Start XAMPP Control Panel: Launch the XAMPP Control Panel and start the Apache and MySQL services.
+
+3. Access phpMyAdmin: Open your web browser and navigate to http://localhost/phpmyadmin.
+
+4. Log in to phpMyAdmin: Enter your MySQL username and password (default username is root and leave the password field empty if you haven't set any).
+
+5. Create a New Database:
+
+- Click on the "Databases" tab in phpMyAdmin.
+
+- Enter a name for your database in the "Create database" field, e.g., `carsystemdb`.
+
+- Click the "Create" button to create the new database.
+
+6. Create a Table:
+
+- Navigate to the newly created database (carsystemdb).
+-  Click on the "SQL" tab.
+
+-   Paste the following SQL code into the SQL query box:
+
+```sql
+CREATE TABLE Cars (
+    car_id INT AUTO_INCREMENT PRIMARY KEY,
+    manufacturer VARCHAR(50) NOT NULL,
+    model VARCHAR(50) NOT NULL,
+    year INT NOT NULL,
+    color VARCHAR(50) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    photo LONGBLOB
+);
+```
+- Click the "Go" button to execute the SQL query and create the Cars table.
+
+7. Verify Database and Table Creation: You can now see the carsystemdb database and the Cars table listed in phpMyAdmin.
+8. Connection Configuration:
+
+- Update your PHP script (e.g., config.php) with the following connection parameters:
+
+```php
+<?php
+// Database connection parameters
+$servername = "localhost"; // Change this to your MySQL server name if it's different
+$username = "root";
+$password = "";
+$database = "carsystemdb";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+?>
+```
+- Save the file and ensure it is included in your PHP scripts that require database connectivity.
+
+
+Now your MySQL database for the Car Management System is set up and ready to use. You can start integrating it into your PHP application.
+
 
 
